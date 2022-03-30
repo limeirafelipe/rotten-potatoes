@@ -1,0 +1,19 @@
+apiversion: apps/v1
+kind: deployment
+metadata:
+  name: deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: web    
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+        - image:  felipelimeira/rotten-potatoes:v1
+          name:  web
+          ports:
+            - containerPort: 80
